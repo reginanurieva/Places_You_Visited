@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <title>List of Places</title>
+    </head>
+    <body>
+        <div class="container">
+            <h1 class="jumbotron">List of Places</h1>
+            <ul>
+                @foreach(var place in Model)
+                {
+                    <li>@place.GetCountry(), @place.GetCity(), @place.GetActivity() </li>
+                }
+            </ul>
+            <a href="/"> Add a new place </a>
+        </div>
+    </body>
+</html>
