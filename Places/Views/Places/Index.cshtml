@@ -11,7 +11,7 @@
             <ul>
                 @foreach(var place in Model)
                 {
-                    <li>@place.GetCountry(), @place.GetCity(), @place.GetActivity() </li>
+                    <h3><a href='places/@place.GetId()'>@place.GetCity()</a></h3>
                 }
             </ul>
             <a href="/"> Add a new place </a>

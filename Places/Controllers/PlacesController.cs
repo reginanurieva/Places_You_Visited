@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using Places.Models;
+using System;
 
 namespace Places.Controllers
 {
@@ -27,5 +28,13 @@ namespace Places.Controllers
             List<Place> allPlaces = Place.GetAll();
             return View("Index", allPlaces);
         }
+        [HttpGet("/places/{id}")]
+        public ActionResult Form(int id)
+        {
+          Place place = Place.Find(id);
+          return View(place);
+        }
+
+
     }
 }

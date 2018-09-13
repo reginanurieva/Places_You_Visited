@@ -1,14 +1,17 @@
 using System.Collections.Generic;
-using System;
+
 
 namespace Places.Models
 {
   public class Place
   {
+    private static List<Place> _instances= new List<Place>();
+    // private List<Item> _items;
     private string _country;
     private string _city;
     private string _activities;
-    private static List<Place> _instances= new List<Place>();
+    private int _id;
+
 
 
     public Place(string country, string city, string activities)
@@ -17,6 +20,7 @@ namespace Places.Models
       _city = city;
       _activities = activities;
       _instances.Add(this);
+      _id = _instances.Count;
     }
 
     public string GetActivity()
@@ -34,10 +38,20 @@ namespace Places.Models
       return _city;
     }
 
-    public static void ClearAll()
+    public int GetId()
     {
-      _instances.Clear();
+      return _id;
     }
+
+    public static Place Find(int searchId)
+        {
+            return _instances[searchId - 1];
+        }
+
+    // public static void ClearAll()
+    // {
+    //   _instances.Clear();
+    // }
 
     public static List<Place> GetAll()
     {
